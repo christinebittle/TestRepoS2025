@@ -67,13 +67,22 @@ namespace CoreRouting.Controllers
             return Message;
         }
 
-        // TODO: proper summary block for our example (include summary, input params, outputs, and testing)
-        // GET : api/Example/Discussion/Zebra -> "Your favorite animal is a Zebra"
-        // GET : api/Example/Discussion/Turle -> "Your favorite animal is a Turle"
+
+
+        /// <summary>
+        /// Receives two favorite animals and produces a discussion on them
+        /// </summary>
+        /// <param name="FavoriteAnimal">First favorite animal</param>
+        /// <param name="SecondFavoriteAnimal">Second Favorite animal</param>
+        /// <returns>A discussion string</returns>
+        /// <example>
+        /// GET : api/Example/Discussion/Zebra/Elephant -> "Your favorite animal is a Zebra  your second favorite is {SecondFavoriteAnimal}"
+        /// GET : api/Example/Discussion/Turle/Monkey -> "Your favorite animal is a Turle your second favorite is Monkey"
+        ///</example>
         [HttpGet(template: "Discussion/{FavoriteAnimal}/{SecondFavoriteAnimal}")]
         public string Discussion(string FavoriteAnimal, string SecondFavoriteAnimal)
         {
-            return $"Your favorite animal is a {FavoriteAnimal}";
+            return $"Your favorite animal is a {FavoriteAnimal} your second favorite is {SecondFavoriteAnimal}";
         }
 
 
